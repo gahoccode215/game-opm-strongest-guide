@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/navigation-menu";
 
 const NAV_LINKS = [
-  { label: "Characters", href: "#" },
+  { label: "Characters", href: "/characters" },
   { label: "Game Features", href: "#" },
   { label: "Guides", href: "#" },
 ];

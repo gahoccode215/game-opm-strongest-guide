@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { buttonVariants } from "@/components/ui/button";
 
 export function HeroSection() {
@@ -14,9 +16,9 @@ export function HeroSection() {
         guides — all in one place, in English and Vietnamese.
       </p>
       <div className="flex flex-wrap items-center justify-center gap-3">
-        <a href="#" className={buttonVariants({ size: "lg" })}>
+        <Link href="/characters" className={buttonVariants({ size: "lg" })}>
           Explore Characters
-        </a>
+        </Link>
         <a
           href="#"
           className={buttonVariants({ variant: "outline", size: "lg" })}

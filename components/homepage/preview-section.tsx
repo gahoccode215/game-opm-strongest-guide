@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import {
   Card,
   CardDescription,
@@ -10,8 +12,8 @@ const PREVIEWS = [
   {
     title: "Characters",
     description:
-      "Browse Heroes, Villains, and Monster Association members with full stats, class, and skills.",
-    href: "#",
+      "Browse Heroes, Outlaws, and Monsters with full stats, class, and skills.",
+    href: "/characters",
   },
   {
     title: "Game Features",
@@ -38,12 +40,12 @@ export function PreviewSection() {
               <CardDescription>{preview.description}</CardDescription>
             </CardHeader>
             <CardFooter>
-              <a
+              <Link
                 href={preview.href}
                 className="text-sm font-medium text-primary hover:underline"
               >
                 View all
-              </a>
+              </Link>
             </CardFooter>
           </Card>
         ))}
