@@ -28,4 +28,3 @@ This is the first feature to build for OPM: The Strongest Guide. It establishes 
 - @context/project-overview.md
 - @context/coding-standards.md
 - @context/ai-interaction-guidelines.md
-- @context/screenshots/homepage-reference.png *(optional — add if you have a design reference; otherwise Claude should propose a clean, content-first layout matching the tone in project-overview.md)*
