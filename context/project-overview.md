@@ -59,14 +59,19 @@ Players of OPM: The Strongest currently have to piece together information from 
 > Data is static JSON, controlled through code/PR (not end-user input) → TypeScript types catching errors at build time is enough. **No zod needed** at this stage. Only reconsider adding zod if a public form for community data submission is introduced later.
 
 ```ts
-// lib/types.ts
+// types/character.ts
+export type Faction = "hero" | "outlaw" | "monster";
+export type CharacterClass = "grappler" | "esper" | "duelist" | "hi-tech";
+export type Rarity = "N" | "R" | "SR" | "SSR" | "SSR+" | "UR" | "UR+";
+
 export interface Character {
   id: string;
   slug: string;
   name: string;
-  faction: "hero" | "villain" | "monster";
+  faction: Faction;
   rank?: string;        // e.g. "S-Class", "Dragon-level"
-  class: string;        // e.g. "Power", "Speed", "Technique"
+  class: CharacterClass;
+  rarity: Rarity;
   image: string;
   stats: {
     hp: number;
@@ -80,7 +85,10 @@ export interface Character {
   }[];
   description?: string;
 }
+```
 
+```ts
+// types/guide.ts
 export interface GuideArticle {
   slug: string;
   title: string;
