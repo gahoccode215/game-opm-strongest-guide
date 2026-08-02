@@ -23,7 +23,7 @@
   - Có tương tác (`onClick`, `onChange`...)
   - Dùng browser API (`localStorage`, `window`...)
 - Fetch data (đọc JSON tĩnh) trực tiếp trong Server Component, không cần API route
-- Dynamic route cho trang chi tiết: `app/[locale]/characters/[slug]/page.tsx`
+- Dynamic route cho trang chi tiết: `app/[locale]/characters/[slug]/page.tsx` (dùng thư mục `app/` ở root, không dùng `src/`)
 - Không cần Server Actions / API routes ở giai đoạn hiện tại (chưa có form ghi dữ liệu, webhook, hay client thứ 3 nào gọi vào)
 
 ## Tailwind CSS v4
@@ -48,12 +48,14 @@ Ví dụ:
 
 ## File Organization
 
-- Components: `src/components/[feature]/ComponentName.tsx`
-- Pages: `src/app/[locale]/[route]/page.tsx`
-- Types: `src/types/[feature].ts`
-- Lib/Utils: `src/lib/[utility].ts`
-- Data tĩnh: `src/data/*.json`
-- Bản dịch: `src/messages/en.json`, `src/messages/vi.json`
+> Project dùng thư mục `app/` ở root (không có `src/`).
+
+- Components: `components/[feature]/ComponentName.tsx`
+- Pages: `app/[locale]/[route]/page.tsx`
+- Types: `types/[feature].ts`
+- Lib/Utils: `lib/[utility].ts`
+- Data tĩnh: `data/*.json`
+- Bản dịch: `messages/en.json`, `messages/vi.json`
 
 ## Naming
 

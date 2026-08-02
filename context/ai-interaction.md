@@ -2,60 +2,60 @@
 
 ## Communication
 
-- Trả lời ngắn gọn, đi thẳng vào vấn đề
-- Giải thích ngắn gọn cho các quyết định không hiển nhiên
-- Hỏi trước khi refactor lớn hoặc thay đổi kiến trúc
-- Không tự thêm tính năng ngoài spec trong `project-overview.md`
-- Không bao giờ xóa file khi chưa được xác nhận
+- Be concise and direct
+- Explain non-obvious decisions briefly
+- Ask before large refactors or architectural changes
+- Don't add features not in `project-overview.md`
+- Never delete files without confirmation
 
 ## Workflow
 
-Quy trình chung áp dụng cho mọi feature/fix:
+This is the common workflow for every feature/fix:
 
-1. **Document** - Ghi lại feature trong `@context/current-feature.md`
-2. **Branch** - Tạo branch mới cho feature/fix
-3. **Implement** - Code theo đúng nội dung đã ghi ở `@context/current-feature.md`
-4. **Test** - Kiểm tra trực tiếp trên trình duyệt. Chạy `npm run build` và fix hết lỗi (unit test bổ sung sau khi dự án ổn định hơn)
-5. **Iterate** - Chỉnh sửa lại nếu cần
-6. **Commit** - Chỉ commit sau khi build pass và mọi thứ hoạt động đúng
-7. **Merge** - Merge vào `main`
-8. **Delete Branch** - Xóa branch sau khi merge
-9. **Review** - Review code AI tạo ra định kỳ hoặc khi cần
-10. Đánh dấu hoàn thành trong `@context/current-feature.md` và thêm vào lịch sử
+1. **Document** - Document the feature in `@context/current-feature.md`
+2. **Branch** - Create a new branch for the feature/fix
+3. **Implement** - Implement exactly what's written in `@context/current-feature.md`
+4. **Test** - Verify it works in the browser. Run `npm run build` and fix any errors (unit testing to be added later once the project is more stable)
+5. **Iterate** - Adjust as needed
+6. **Commit** - Only after the build passes and everything works correctly
+7. **Merge** - Merge into `main`
+8. **Delete Branch** - Delete the branch after merging
+9. **Review** - Review AI-generated code periodically or on demand
+10. Mark as completed in `@context/current-feature.md` and add it to the history
 
-**Không commit khi chưa được cho phép và khi build chưa pass.** Nếu build fail, fix lỗi trước tiên.
+**Do NOT commit without permission and until the build passes.** If the build fails, fix the issues first.
 
 ## Branching
 
-- Tạo branch mới cho mỗi feature/fix
-- Đặt tên: `feature/[ten-feature]` hoặc `fix/[ten-fix]`
-- Hỏi trước khi xóa branch sau khi đã merge
+- Create a new branch for every feature/fix
+- Name it: `feature/[feature-name]` or `fix/[fix-name]`
+- Ask before deleting a branch after it has been merged
 
 ## Commits
 
-- Hỏi trước khi commit (không tự động commit)
-- Dùng conventional commit message (`feat:`, `fix:`, `chore:`...)
-- Mỗi commit tập trung vào một feature/fix, không gộp nhiều việc
-- Không để dòng "Generated with Claude" trong commit message
+- Ask before committing (don't auto-commit)
+- Use conventional commit messages (`feat:`, `fix:`, `chore:`, etc.)
+- Keep each commit focused on one feature/fix, don't bundle multiple changes
+- Never include "Generated with Claude" in commit messages
 
 ## When Stuck
 
-- Nếu thử 2-3 lần không được, dừng lại và giải thích vấn đề
-- Không tiếp tục đoán mò sửa linh tinh
-- Hỏi lại nếu requirement chưa rõ ràng
+- If something isn't working after 2-3 attempts, stop and explain the issue
+- Don't keep trying random fixes
+- Ask for clarification if requirements are unclear
 
 ## Code Changes
 
-- Chỉ sửa tối thiểu để hoàn thành task
-- Không refactor phần code không liên quan nếu chưa được yêu cầu
-- Không tự thêm tính năng "có thì tốt" ngoài phạm vi task
-- Giữ đúng pattern đang có sẵn trong codebase (component structure, naming, Server/Client component...)
+- Make minimal changes to accomplish the task
+- Don't refactor unrelated code unless asked
+- Don't add "nice to have" features outside the task scope
+- Preserve existing patterns in the codebase (component structure, naming, Server/Client component usage...)
 
 ## Code Review
 
-Review code AI tạo ra định kỳ, đặc biệt chú ý:
+Review AI-generated code periodically, especially for:
 
-- **Performance**: re-render thừa do thiếu `key`/`memo`, import data JSON không cần thiết nhiều lần, dùng `'use client'` khi không thật sự cần
-- **Logic errors**: các trường hợp edge case (thiếu field trong data, slug không tồn tại...)
-- **Patterns**: có khớp với cấu trúc/coding standard hiện tại của codebase không (xem `coding-standards.md`)
-- **Data integrity**: khi sửa file JSON trong `src/data/`, kiểm tra đúng type định nghĩa trong `src/types/`, không thiếu field bắt buộc
+- **Performance**: unnecessary re-renders from missing `key`/`memo`, redundant JSON data imports, using `'use client'` when not actually needed
+- **Logic errors**: edge cases (missing fields in data, non-existent slugs...)
+- **Patterns**: does it match the existing codebase structure/coding standard (see `coding-standards.md`)?
+- **Data integrity**: when editing JSON files in `src/data/`, verify they match the type definitions in `src/types/`, with no missing required fields

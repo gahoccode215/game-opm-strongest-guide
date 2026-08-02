@@ -1,62 +1,62 @@
 # OPM: The Strongest — Guide Project Specifications
 
-🦸 **Trang thông tin & cẩm nang cộng đồng cho game OPM: The Strongest**
+🦸 **Community information & guide hub for OPM: The Strongest**
 
 ---
 
 ## 📌 Problem (Core Idea)
 
-Người chơi OPM: The Strongest hiện phải tự tổng hợp thông tin từ nhiều nguồn rời rạc:
+Players of OPM: The Strongest currently have to piece together information from scattered sources:
 
-- Thông tin tướng (chỉ số, skill) nằm rải rác trong nhiều bài viết/video
-- Các cơ chế/tính năng trong game (Tinh thông - Mastery, và các hệ thống khác) không có nơi giải thích rõ ràng, dễ hiểu
-- Người chơi mới không biết bắt đầu từ đâu, thiếu cẩm nang tân thủ tổng hợp
-- Thông tin chỉ có tiếng Anh hoặc tiếng Việt riêng lẻ, không đầy đủ cả hai
+- Character info (stats, skills) is spread across many different articles/videos
+- In-game features/mechanics (Mastery, and other systems) have no clear, easy-to-understand explanation
+- New players don't know where to start, and there's no consolidated beginner guide
+- Content exists only in English or only in Vietnamese, never both
 
-➡️ **Trang này là nơi tổng hợp thông tin tướng, các tính năng/cơ chế trong game, và cẩm nang hướng dẫn — trình bày rõ ràng, đẹp, dễ đọc, hỗ trợ song ngữ Anh/Việt.**
+➡️ **This site is a single place that consolidates character info, game features/mechanics, and guides — presented clearly, beautifully, and easy to read, with bilingual English/Vietnamese support.**
 
 ---
 
 ## 🧑‍💻 Users
 
-| Persona | Nhu cầu |
+| Persona | Needs |
 |---|---|
-| Người chơi mới | Đọc cẩm nang tân thủ, hiểu cơ bản về game |
-| Người chơi lâu năm | Tra cứu thông tin tướng, hiểu sâu cơ chế (Mastery...) |
-| Người chơi quốc tế | Đọc nội dung bằng tiếng Anh hoặc Việt tùy nhu cầu |
+| New player | Read beginner guides, understand the game basics |
+| Long-time player | Look up character info, understand mechanics in depth (Mastery...) |
+| International player | Read content in English or Vietnamese depending on preference |
 
 ---
 
 ## ✨ Core Features
 
-### A) Character Info (Thông tin Tướng)
+### A) Character Info
 
-- Danh sách tướng: Hero, Villain, Monster Association...
-- Trang chi tiết từng tướng: chỉ số, class, rank, skill, hình ảnh, mô tả
+- Character list: Hero, Villain, Monster Association...
+- Detail page per character: stats, class, rank, skills, image, description
 
-### B) Game Features & Mechanics (Tính năng game)
+### B) Game Features & Mechanics
 
-- Trang giải thích riêng cho từng cơ chế trong game: Tinh thông (Mastery), và các hệ thống khác
-- Nội dung dạng bài viết, có hình minh họa, dễ hiểu cho người mới
+- A dedicated explainer page for each in-game mechanic: Mastery, and other systems
+- Article-style content with illustrations, easy for newcomers to follow
 
-### C) Cẩm nang (Game Guides)
+### C) Guides
 
-- Hướng dẫn tân thủ (bắt đầu chơi như thế nào, ưu tiên làm gì)
-- Các bài hướng dẫn theo chủ đề khác (mở rộng dần theo nhu cầu cộng đồng)
+- Beginner guide (how to start playing, what to prioritize)
+- Additional topic-based guides (expanded over time based on community needs)
 
-### D) UI/UX cơ bản
+### D) Basic UI/UX
 
-- **Dark / Light mode** — cho phép người dùng chuyển đổi, lưu lựa chọn
-- **Đa ngôn ngữ Anh/Việt (en/vi)** — chuyển ngôn ngữ toàn trang
-- Giao diện đẹp, thân thiện, dễ đọc — ưu tiên trải nghiệm đọc nội dung hơn là nhiều tính năng
+- **Dark / Light mode** — user can toggle, preference is remembered
+- **Bilingual English/Vietnamese (en/vi)** — switch language for the whole site
+- Beautiful, friendly, readable interface — prioritizing reading experience over feature count
 
-> ❌ Chưa cần: search/filter, tier list, so sánh tướng, tài khoản người dùng — có thể thêm sau khi có nhu cầu thực tế rõ ràng.
+> ❌ Not needed yet: search/filter, tier list, character comparison, user accounts — can be added later once there's a clear real need.
 
 ---
 
-## 🗄️ Data Model (Static JSON — TypeScript type, không cần validate runtime)
+## 🗄️ Data Model (Static JSON — TypeScript types, no runtime validation needed)
 
-> Data là JSON tĩnh, kiểm soát qua code/PR (không phải input từ người dùng cuối) → dùng TypeScript type để bắt lỗi lúc build là đủ, **không cần zod** ở giai đoạn này. Chỉ cân nhắc thêm zod nếu sau này có form công khai cho cộng đồng tự nhập data.
+> Data is static JSON, controlled through code/PR (not end-user input) → TypeScript types catching errors at build time is enough. **No zod needed** at this stage. Only reconsider adding zod if a public form for community data submission is introduced later.
 
 ```ts
 // lib/types.ts
@@ -65,8 +65,8 @@ export interface Character {
   slug: string;
   name: string;
   faction: "hero" | "villain" | "monster";
-  rank?: string;        // ví dụ: "S-Class", "Dragon-level"
-  class: string;        // ví dụ: "Power", "Speed", "Technique"
+  rank?: string;        // e.g. "S-Class", "Dragon-level"
+  class: string;        // e.g. "Power", "Speed", "Technique"
   image: string;
   stats: {
     hp: number;
@@ -92,12 +92,12 @@ export interface GuideArticle {
 
 ```
 /data
-  characters.json       // danh sách tướng
-  mechanics.json        // dữ liệu tính năng game (Mastery, v.v.)
-  guides.json           // cẩm nang, hướng dẫn tân thủ
+  characters.json       // character list
+  mechanics.json        // game feature data (Mastery, etc.)
+  guides.json           // guides, beginner articles
 /messages
-  en.json                // bản dịch tiếng Anh
-  vi.json                // bản dịch tiếng Việt
+  en.json                // English translations
+  vi.json                // Vietnamese translations
 ```
 
 ---
@@ -108,85 +108,85 @@ export interface GuideArticle {
 |---|---|
 | Framework | **Next.js 16 (React 19, App Router)** |
 | Language | TypeScript |
-| Data | Static JSON + TypeScript type (không cần zod) |
-| Nội dung dài (guide) | Markdown/MDX |
-| Rendering | SSG / ISR (data ít thay đổi) |
+| Data | Static JSON + TypeScript types (no zod) |
+| Long-form content (guides) | Markdown/MDX |
+| Rendering | SSG / ISR (data rarely changes) |
 | CSS/UI | Tailwind CSS v4 + shadcn/ui |
 | Dark/Light mode | `next-themes` |
-| Đa ngôn ngữ (en/vi) | `next-intl` |
-| State | React state/context (không cần Zustand/Redux) |
+| Localization (en/vi) | `next-intl` |
+| State | React state/context (no Zustand/Redux needed) |
 | Deployment | Vercel |
 
 ---
 
 ## 🎨 UI / UX
 
-- **Dark mode & Light mode**: toggle ở header, lưu lựa chọn (theme mặc định theo hệ thống lần đầu truy cập)
-- **Ngôn ngữ en/vi**: chuyển đổi ở header, URL dạng `/en/...` và `/vi/...`
-- Theme màu lấy cảm hứng từ OPM (vàng/đen/đỏ), nhưng đảm bảo tương phản tốt ở cả 2 mode
-- Font rõ ràng, dễ đọc — vì nội dung chính là bài viết/thông tin, ưu tiên trải nghiệm đọc
-- Component chính dùng từ shadcn/ui: Card (tướng/tính năng), Tabs (phân loại nội dung), Badge (class/rank), Table (chỉ số)
-- Responsive, ưu tiên mobile
+- **Dark mode & Light mode**: toggle in the header, preference saved (defaults to system theme on first visit)
+- **Language en/vi**: switcher in the header, URL structure `/en/...` and `/vi/...`
+- Color theme inspired by OPM (yellow/black/red), with good contrast maintained in both modes
+- Clear, readable fonts — since the main content is articles/information, reading experience comes first
+- Main components from shadcn/ui: Card (character/feature), Tabs (content categories), Badge (class/rank), Table (stats)
+- Responsive, mobile-first
 
 ### Layout
 
-- Header: Logo + Nav (Tướng / Tính năng / Cẩm nang) + Theme toggle + Language switch
-- Trang danh sách: dạng grid card
-- Trang chi tiết: nội dung rõ ràng, có mục lục nếu bài dài
+- Header: Logo + Nav (Characters / Features / Guides) + Theme toggle + Language switch
+- List pages: grid of cards
+- Detail pages: clean content layout, table of contents for longer articles
 
 ---
 
-## 🔌 Kiến trúc (đơn giản)
+## 🔌 Architecture (simple)
 
 ```mermaid
 graph TD;
   Client --> NextApp[Next.js App]
-  NextApp --> StaticData[(JSON tĩnh trong /data)]
-  NextApp --> Messages[(Bản dịch /messages en-vi)]
+  NextApp --> StaticData[(Static JSON in /data)]
+  NextApp --> Messages[(Translations in /messages en-vi)]
   NextApp --> Vercel[Deploy: Vercel]
 ```
 
-Không cần API route riêng — toàn bộ nội dung render tĩnh (SSG) lúc build.
+No separate API route needed — all content is statically rendered (SSG) at build time.
 
 ---
 
 ## 🗂️ Development Workflow
 
-- Nội dung (tướng/tính năng/cẩm nang) chỉnh sửa qua file JSON/MDX, commit qua PR
-- Không cần CI/CD phức tạp — Vercel tự deploy khi push
-- **Không bao giờ thêm "Co-Authored-By: Claude" (hoặc bất kỳ AI nào) vào commit message**
+- Content (characters/features/guides) is edited via JSON/MDX files, committed through PRs
+- No complex CI/CD needed — Vercel auto-deploys on push
+- **Never add "Co-Authored-By: Claude" (or any AI) to commit messages**
 
 ---
 
 ## 🧭 Roadmap
 
 ### **MVP**
-- Trang danh sách + chi tiết Tướng
-- Trang Tính năng game (bắt đầu với Mastery/Tinh thông)
-- Cẩm nang tân thủ (1-2 bài đầu tiên)
+- Character list + detail pages
+- Game Features page (starting with Mastery)
+- Beginner guide (first 1-2 articles)
 - Dark/Light mode
-- Đa ngôn ngữ en/vi
-- Deploy lên Vercel
+- Bilingual en/vi
+- Deploy to Vercel
 
 ### **Phase 2**
-- Mở rộng thêm cẩm nang theo chủ đề
-- Tối ưu SEO (metadata, sitemap, đa ngôn ngữ)
-- Cải thiện UI theo phản hồi cộng đồng
+- Expand guides by topic
+- SEO optimization (metadata, sitemap, localization)
+- UI improvements based on community feedback
 
-### **Future (chỉ khi thực sự cần)**
-- Search/filter khi lượng nội dung đủ lớn
-- Tier list, so sánh tướng
-- Cộng đồng đóng góp nội dung trực tiếp (cần zod validate nếu có form công khai)
+### **Future (only when genuinely needed)**
+- Search/filter once content volume is large enough
+- Tier list, character comparison
+- Direct community content contribution (would require zod validation if a public form is added)
 
-> Nguyên tắc chung: chỉ thêm tính năng khi có nhu cầu thực tế rõ ràng, giữ dự án gọn để dễ maintain một mình.
+> General principle: only add a feature when there's a clear real need — keep the project lean and maintainable by one person.
 
 ---
 
 ## 📌 Status
 
-- Đã khởi tạo project (Next.js 16 + React 19 + Tailwind v4 + TypeScript)
-- Đang chuẩn bị setup shadcn/ui, next-themes, next-intl và cấu trúc `/data`, `/messages`
+- Project initialized (Next.js 16 + React 19 + Tailwind v4 + TypeScript)
+- Preparing to set up shadcn/ui, next-themes, next-intl, and the `/data`, `/messages` structure
 
 ---
 
-🦸 **OPM: The Strongest Guide — Thông tin đầy đủ, cẩm nang rõ ràng, song ngữ Anh/Việt.**
+🦸 **OPM: The Strongest Guide — Complete info, clear guides, bilingual English/Vietnamese.**
