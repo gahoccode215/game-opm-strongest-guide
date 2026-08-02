@@ -1,0 +1,150 @@
+[
+  {
+    "id": "1",
+    "slug": "kenji-thunder",
+    "name": "Kenji Thunder",
+    "faction": "hero",
+    "rank": "S-Class",
+    "class": "grappler",
+    "rarity": "UR+",
+    "image": "/placeholder-character.svg",
+    "stats": { "hp": 9800, "atk": 1450, "def": 980, "spd": 210 },
+    "skills": [
+      {
+        "name": "Thunder Grip",
+        "description": "Grabs the target and channels lightning through the hold, dealing heavy damage over time."
+      },
+      {
+        "name": "Overload Slam",
+        "description": "A devastating slam attack that stuns all nearby enemies."
+      }
+    ],
+    "description": "A top-ranked Hero known for his overwhelming grappling power."
+  },
+  {
+    "id": "2",
+    "slug": "akira-void",
+    "name": "Akira Void",
+    "faction": "outlaw",
+    "rank": "Dragon-level",
+    "class": "esper",
+    "rarity": "UR",
+    "image": "/placeholder-character.svg",
+    "stats": { "hp": 7200, "atk": 1680, "def": 620, "spd": 260 },
+    "skills": [
+      {
+        "name": "Mind Fracture",
+        "description": "Assaults the target's mind, lowering their attack and defense."
+      }
+    ],
+    "description": "A rogue esper who abandoned the Hero Association to work alone."
+  },
+  {
+    "id": "3",
+    "slug": "gorewing",
+    "name": "Gorewing",
+    "faction": "monster",
+    "rank": "Tiger-level",
+    "class": "hi-tech",
+    "rarity": "SSR+",
+    "image": "/placeholder-character.svg",
+    "stats": { "hp": 8600, "atk": 1200, "def": 1100, "spd": 150 },
+    "skills": [
+      {
+        "name": "Wing Barrage",
+        "description": "Fires a volley of razor-sharp feathers at all enemies."
+      }
+    ],
+    "description": "A monster hybridized with combat drone technology."
+  },
+  {
+    "id": "4",
+    "slug": "mira-swift",
+    "name": "Mira Swift",
+    "faction": "hero",
+    "rank": "A-Class",
+    "class": "duelist",
+    "rarity": "SSR",
+    "image": "/placeholder-character.svg",
+    "stats": { "hp": 5400, "atk": 1150, "def": 540, "spd": 320 },
+    "skills": [
+      {
+        "name": "Twin Blade Flurry",
+        "description": "A rapid series of sword strikes against a single target."
+      }
+    ],
+    "description": "A speed-focused Hero specializing in one-on-one duels."
+  },
+  {
+    "id": "5",
+    "slug": "crimson-jester",
+    "name": "Crimson Jester",
+    "faction": "outlaw",
+    "rank": "B-Class",
+    "class": "duelist",
+    "rarity": "SR",
+    "image": "/placeholder-character.svg",
+    "stats": { "hp": 4200, "atk": 980, "def": 460, "spd": 280 },
+    "skills": [
+      {
+        "name": "Chaos Cut",
+        "description": "An unpredictable strike with randomized bonus damage."
+      }
+    ],
+    "description": "A theatrical outlaw who turns every fight into a performance."
+  },
+  {
+    "id": "6",
+    "slug": "iron-hound",
+    "name": "Iron Hound",
+    "faction": "monster",
+    "rank": "Wolf-level",
+    "class": "grappler",
+    "rarity": "R",
+    "image": "/placeholder-character.svg",
+    "stats": { "hp": 3600, "atk": 720, "def": 640, "spd": 190 },
+    "skills": [
+      {
+        "name": "Iron Bite",
+        "description": "A crushing bite attack that ignores a portion of defense."
+      }
+    ],
+    "description": "A pack-hunting monster with an armored hide."
+  },
+  {
+    "id": "7",
+    "slug": "echo-nine",
+    "name": "Echo Nine",
+    "faction": "hero",
+    "rank": "C-Class",
+    "class": "esper",
+    "rarity": "N",
+    "image": "/placeholder-character.svg",
+    "stats": { "hp": 2200, "atk": 480, "def": 320, "spd": 210 },
+    "skills": [
+      {
+        "name": "Sonic Pulse",
+        "description": "A basic ranged attack using focused sound waves."
+      }
+    ],
+    "description": "A rookie Hero still learning to control her powers."
+  },
+  {
+    "id": "8",
+    "slug": "vex-tanaka",
+    "name": "Vex Tanaka",
+    "faction": "outlaw",
+    "rank": "A-Class",
+    "class": "hi-tech",
+    "rarity": "SSR",
+    "image": "/placeholder-character.svg",
+    "stats": { "hp": 4800, "atk": 1080, "def": 580, "spd": 240 },
+    "skills": [
+      {
+        "name": "Drone Swarm",
+        "description": "Deploys a swarm of attack drones that harass the enemy team."
+      }
+    ],
+    "description": "A former weapons engineer turned high-tech outlaw."
+  }
+]
